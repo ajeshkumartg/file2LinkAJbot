@@ -15,24 +15,26 @@ A powerful, self-hosted Telegram bot that converts files into direct downloadabl
 
 A powerful, self-hosted Telegram bot that converts files sent to it into direct downloadable links. Built with Pyrogram and designed to run on a Linux server, this bot can handle large files (up to 2GB) and includes features like automatic file cleanup and download progress indicators.
 
-🌟 Features
-Large File Support: Bypasses Telegram's 20MB bot limit, supporting downloads up to 2GB.
+# 🌟 Features
 
-Direct Links: Generates direct HTTP links for easy sharing and downloading.
+- Large File Support: Bypasses Telegram's 20MB bot limit, supporting downloads up to 2GB.
 
-Multi-File Handling: Supports documents, videos, photos, and audio files.
+- Direct Links: Generates direct HTTP links for easy sharing and downloading.
 
-Download Progress: Shows a real-time progress bar when downloading files.
+- Multi-File Handling: Supports documents, videos, photos, and audio files.
 
-Duplicate File Check: Avoids re-downloading by providing a link to an existing file if a duplicate is sent.
+- Download Progress: Shows a real-time progress bar when downloading files.
 
-Automatic Cleanup: Automatically deletes files from the server after a configurable amount of time (default is 6 hours) to save space.
+- Duplicate File Check: Avoids re-downloading by providing a link to an existing file if a duplicate is sent.
 
-Personalized & Supportive: Greets users by name and includes a "Buy Me a Coffee" link in all replies to support the developer.
+- Automatic Cleanup: Automatically deletes files from the server after a configurable amount of time (default is 6 hours) to save space.
 
-Organized Codebase: The project is structured into multiple files for easy maintenance and readability.
+- Personalized & Supportive: Greets users by name and includes a "Buy Me a Coffee" link in all replies to support the developer.
 
-🏗️ Project Structure
+- Organized Codebase: The project is structured into multiple files for easy maintenance and readability.
+
+
+# 🏗️ Project Structure
 The bot's code is organized into several files to keep it clean and manageable:
 
 .
@@ -42,32 +44,35 @@ The bot's code is organized into several files to keep it clean and manageable:
 ├── utils.py            # Helper functions and background tasks (e.g., file cleanup).
 └── requirements.txt    # A list of all necessary Python packages.
 
-📋 Prerequisites
-Before you begin, you will need the following:
+# 📋 Prerequisites
 
-A Telegram Account: To get the necessary API credentials.
+**Before you begin, you will need the following:**
 
-A Telegram Bot Token: Obtained from @BotFather on Telegram.
+- A Telegram Account: To get the necessary API credentials.
 
-A Linux Server: A cloud VM (like Oracle Cloud's "Always Free" tier running Ubuntu) is perfect.
+- A Telegram Bot Token: Obtained from @BotFather on Telegram.
 
-Nginx Web Server: To serve the downloaded files.
+- A Linux Server: A cloud VM (like Oracle Cloud's "Always Free" tier running Ubuntu) is perfect.
 
-Python 3.8+ installed on your server.
+- Nginx Web Server: To serve the downloaded files.
 
-🚀 Setup & Deployment
+- Python 3.8+ installed on your server.
+
+# 🚀 Setup & Deployment
 Follow these steps to get your bot up and running on an Ubuntu server.
 
 1. Clone the Repository
 Clone this repository into a directory of your choice on your server.
 
+```
 git clone https://github.com/ajeshkumartg/file2LinkAJbot.git
 cd file2LinkAJbot
+```
 
 2. Install Dependencies
 Install the required Python packages using the requirements.txt file.
 
-pip3 install -r requirements.txt
+```pip3 install -r requirements.txt```
 
 3. Configure the Bot
 This is the most important step. You need to provide your credentials and server details.
@@ -82,24 +87,26 @@ Fill in all the required variables as explained in the Configuration Variables s
 Your bot needs a web server to make the files accessible and a directory with the correct permissions to save them.
 
 # Install Nginx
-sudo apt update && sudo apt install nginx -y
+```sudo apt update && sudo apt install nginx -y```
 
 # Create the download directory
-sudo mkdir -p /var/www/html/downloads
+```sudo mkdir -p /var/www/html/downloads```
 
 # Set permissions (replace 'user' with your actual username)
+```
 sudo chown -R user:user /var/www/html/downloads
 sudo chmod 755 /var/www/html/downloads
+```
 
 5. Run the Bot as a Service (Recommended)
 To ensure your bot runs 24/7, set it up as a systemd service.
 
 Create a new service file:
 
-sudo nano /etc/systemd/system/telegrambot.service
+```sudo nano /etc/systemd/system/telegrambot.service```
 
 Paste the following configuration into the file. Remember to replace user with your username and verify the paths.
-
+```
 [Unit]
 Description=Pyrogram Telegram File Link Bot
 After=network.target
@@ -114,16 +121,16 @@ RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
-
+```
 Enable and start the service:
-
+```
 sudo systemctl daemon-reload
 sudo systemctl enable telegrambot.service
 sudo systemctl start telegrambot.service
-
+```
 Check the status to ensure it's running:
 
-sudo systemctl status telegrambot.service
+```sudo systemctl status telegrambot.service```
 
 ⚙️ Configuration Variables
 All configuration is done in the config.py file.
