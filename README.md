@@ -135,37 +135,16 @@ Check the status to ensure it's running:
 ⚙️ Configuration Variables
 All configuration is done in the config.py file.
 
-Variable
+| Variable         | Description                                 | Example                                 |
+|------------------|---------------------------------------------|-----------------------------------------|
+| `API_ID`         | Telegram API ID from my.telegram.org         | `12345`                                 |
+| `API_HASH`       | Telegram API Hash from my.telegram.org       | `abc123def456`                          |
+| `BOT_TOKEN`      | Bot token from @BotFather                   | `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`  |
+| `SERVER_IP`      | The public IP address of your server. Do not include http://.| `141.123.45.67`                    |
+| `DOWNLOAD_DIR`       | The absolute path on your server where files will be downloaded. Default is /var/www/html/downloads/.   | `/var/www/html/downloads`                     |
+| `FILE_LIFETIME_SECONDS` | The duration (in seconds) a file should be stored before being deleted. Default is 21600 (6 hours). | ``                          |
+| `CLEANUP_INTERVAL_SECONDS`           | How often (in seconds) the cleanup task should run to check for old files. Default is 600 (10 minutes) | ``                  |
 
-Description
-
-API_ID
-
-(Required) Your API ID obtained from my.telegram.org. Used for authenticating as a user account to download large files.
-
-API_HASH
-
-(Required) Your API Hash from my.telegram.org. Keep this secret.
-
-BOT_TOKEN
-
-(Required) The token for your bot, obtained from @BotFather. Keep this secret.
-
-SERVER_IP
-
-(Required) The public IP address of your server. Do not include http://.
-
-DOWNLOAD_DIR
-
-The absolute path on your server where files will be downloaded. Default is /var/www/html/downloads/.
-
-FILE_LIFETIME_SECONDS
-
-The duration (in seconds) a file should be stored before being deleted. Default is 21600 (6 hours).
-
-CLEANUP_INTERVAL_SECONDS
-
-How often (in seconds) the cleanup task should run to check for old files. Default is 600 (10 minutes).
 
 📜 License
 This project is licensed under the MIT License. See the LICENSE file for details.
